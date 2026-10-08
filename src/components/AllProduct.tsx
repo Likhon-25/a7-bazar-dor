@@ -1,6 +1,6 @@
 "use cache";
 
-interface IPriceDownProps {
+interface IAllProductProps {
   id: number;
   image: string;
   nameBn: string;
@@ -11,15 +11,15 @@ interface IPriceDownProps {
     pct: number;
   };
 }
-const PriceDown =async () => {
-    const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products")
-    const data: IPriceDownProps[] = await res.json()
-    const filterDownPrice = data.filter((d) => d.change.dir === "down").slice(0,6)
 
+const AllProduct =async () => {
+    const res = await fetch('https://api.abcz.workers.dev/api/bazardor/products')
+    const allProduct = await res.json()
+    // console.log(allProduct);
     return (
         <div>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {filterDownPrice.map((filter: IPriceDownProps) => (
+        {allProduct.map((filter: IAllProductProps) => (
           <div
             key={filter.id}
             className="rounded-2xl border border-[#d2dbd2] bg-[#E1E8E1] p-5"
@@ -56,4 +56,4 @@ const PriceDown =async () => {
     );
 };
 
-export default PriceDown;
+export default AllProduct;
