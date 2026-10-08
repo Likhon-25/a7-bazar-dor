@@ -30,7 +30,9 @@ interface IProduct {
 const ProductDetailsPage = async ({ params }: { params: Promise<{ productDetailsId: string }> }) => {
   const { productDetailsId } = await params;
 
-  const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
+  const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products", {
+    next: { revalidate: 300 },
+  });
   const products: IProduct[] = await res.json();
 
   const product =
