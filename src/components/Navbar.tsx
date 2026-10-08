@@ -20,7 +20,7 @@ const Navbar =async () => {
         {data.map((navs: INavsProps) => (
           <Link
             key={navs.id}
-            href={`/${navs.slug}`}
+            href={`/category/${navs.slug}`}
             className="flex  items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 transition hover:text-green-800"
           >
             <span className="text-base">{navs.icon}</span>

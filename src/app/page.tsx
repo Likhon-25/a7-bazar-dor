@@ -11,7 +11,7 @@ export default function Home() {
       <div className="">
         <div className="container mx-auto mt-10 ">
           <div className="flex items-center gap-2 mb-5">
-            <span className="text-red-600 text-xl"><IoMdArrowDropup />
+            <span className="text-red-600 text-2xl"><IoMdArrowDropup />
 </span>
             <h2 className="text-2xl font-bold">আজ দাম বেড়েছে</h2>
           </div>

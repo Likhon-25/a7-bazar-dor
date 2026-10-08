@@ -12,7 +12,7 @@ interface IMarqueeProps {
 const Marquee = async() => {
     const res = await fetch('https://api.abcz.workers.dev/api/bazardor/products')
     const data = await res.json()
-    const marqueeData: IMarqueeProps[] = data.slice(0, 10);
+    const marqueeData: IMarqueeProps[] = data.slice(0, 20);
     return (
         <div>
              <div className="border-b border-gray-200 bg-gray-50 py-3">
