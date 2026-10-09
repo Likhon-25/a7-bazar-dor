@@ -15,7 +15,7 @@ interface IPriceUpProps {
 }
 
 const PriceUp = async () => {
-  const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
+  const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products");
   const data = await res.json();
   const filterUpPrice = data.filter(
     (n: IPriceUpProps) => n.change.dir === "up",

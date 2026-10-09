@@ -12,31 +12,20 @@ const UserInfo = () => {
   return (
     <div className="shrink-0">
       {user ? (
-        <div className="collapse collapse-end relative w-auto">
-          <div
-            tabIndex={0}
-            className="collapse-title flex min-h-0 cursor-pointer items-center gap-2 rounded-full border border-[#dfe8e0] bg-white py-1.5 pl-1.5 pr-3 text-sm font-semibold text-[#1d271f] shadow-sm transition hover:border-[#b7d8c2] hover:bg-[#f8fbf8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#05893e]"
-          >
+        <details className="group relative">
+          <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full border border-[#dfe8e0] bg-white py-1.5 pl-1.5 pr-3 text-sm font-semibold text-[#1d271f] shadow-sm transition hover:border-[#b7d8c2] hover:bg-[#f8fbf8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#05893e] [&::-webkit-details-marker]:hidden">
             <div className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-[#e8f4eb] text-sm font-bold text-[#047f39] ring-2 ring-[#d9eddf]">
-              {user.image ? (
-                <img
-                  alt="User Image"
-                  src={user.image}
-                  className="h-full w-full object-cover"
-                />
-              ) : (
-                user.name?.charAt(0) || "?"
-              )}
+              {user.image}
             </div>
             <span className="hidden max-w-28 truncate sm:block">{user.name}</span>
             <span aria-hidden="true" className="text-xs text-[#657168]">
               ▼
             </span>
-          </div>
+          </summary>
 
-          <div className="collapse-content absolute right-0 top-full z-50 mt-2 min-w-48 rounded-xl border border-[#e1e8e2] bg-white p-2 text-sm shadow-lg">
+          <div className="absolute right-0 top-full z-50 mt-2 hidden min-w-48 rounded-xl border border-[#e1e8e2] bg-white p-2 text-sm shadow-lg group-open:block">
             <div className="truncate border-b border-[#edf1ed] px-3 py-2 font-semibold text-[#1d271f]">
-              {user.name}
+              {user.email}
             </div>
             <button
               onClick={handleSignOut}
@@ -45,7 +34,7 @@ const UserInfo = () => {
               লগ আউট
             </button>
           </div>
-        </div>
+        </details>
       ) : (
         <div className="flex items-center gap-1 sm:gap-2">
           <Link

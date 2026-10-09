@@ -14,7 +14,7 @@ interface IPriceDownProps {
   };
 }
 const PriceDown =async () => {
-    const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products")
+    const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products")
     const data: IPriceDownProps[] = await res.json()
     const filterDownPrice = data.filter((d) => d.change.dir === "down").slice(0,6)
 
