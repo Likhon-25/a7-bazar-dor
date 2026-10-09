@@ -30,7 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <Navbar />
         <Marquee />
-        <main>{children}</main>
+        <main className="container mx-auto">{children}</main>
       </body>
     </html>
   );
