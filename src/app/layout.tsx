@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
 import Marquee from "@/components/Marquee";
+import { ToastContainer } from "react-toastify";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Navbar />
         <Marquee />
         <main className="container mx-auto">{children}</main>
+        <ToastContainer />
       </body>
     </html>
   );

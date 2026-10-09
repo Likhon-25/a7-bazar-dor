@@ -1,10 +1,8 @@
 "use client";
 
 import { authClient } from "@/lib/auth-client";
-import { object } from "better-auth";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import React, { ReactEventHandler } from "react";
 
 const SignUp = () => {
 
@@ -27,6 +25,21 @@ const SignUp = () => {
       console.log(error);
     }
   }
+
+  
+const handleGoogleSignUp = async () => {
+  const data = await authClient.signIn.social({
+    provider: "google",
+  });
+};
+
+const handleGithubSignUp = async () => {
+  const data = await authClient.signIn.social({
+    provider: "github",
+  });
+};
+    
+
   return (
     <>
       <section className="relative left-1/2 -ml-[50vw] flex min-h-[742px] w-screen justify-center bg-[#f1f6f2] px-4 py-10 text-[#1d271f]">
@@ -103,6 +116,7 @@ const SignUp = () => {
             <div className="grid grid-cols-2 gap-2">
               {/* Google */}
               <button
+              onClick={handleGoogleSignUp}
                 type="button"
                 className="flex h-10 items-center justify-center gap-2 rounded-lg border border-[#e1e8e2] bg-white px-2 text-xs font-medium whitespace-nowrap transition hover:bg-[#f7faf7] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#05893e]"
               >
@@ -134,6 +148,7 @@ const SignUp = () => {
               </button>
               {/* Github */}
               <button
+              onClick={handleGithubSignUp}
                 type="button"
                 className="flex h-10 items-center justify-center gap-2 rounded-lg border border-[#e1e8e2] bg-white px-2 text-xs font-medium whitespace-nowrap transition hover:bg-[#f7faf7] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#05893e]"
               >
@@ -174,5 +189,6 @@ const SignUp = () => {
     </>
   );
 };
+
 
 export default SignUp;
