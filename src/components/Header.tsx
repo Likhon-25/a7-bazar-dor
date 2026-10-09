@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import UserInfo from "./UserInfo";
 
 const Header = () => {
   const [date, setDate] = useState("");
@@ -37,10 +38,7 @@ const Header = () => {
           </div>
         </Link>
 
-        <div className="flex items-center gap-3">
-          <button className="btn btn-ghost ">সাইন ইন</button>
-          <button className="btn bg-[#047F39] text-white ">সাইন আপ</button>
-        </div>
+        <UserInfo />
       </div>
     </header>
   );
