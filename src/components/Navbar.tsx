@@ -1,35 +1,27 @@
 "use cache";
 
-import Link from "next/link";
+import { Suspense } from "react";
+import CategoryNavLinks, {
+  type CategoryNavItem,
+} from "@/components/CategoryNavLinks";
 
-interface INavsProps {
-  id: string;
-  slug: string;
-  icon: string;
-  nameBn: string;
-}
+const Navbar = async () => {
+  const res = await fetch("https://api.abcz.workers.dev/api/bazardor/categories");
+  const categories: CategoryNavItem[] = await res.json();
 
-const Navbar =async () => {
-    const res = await fetch('https://api.abcz.workers.dev/api/bazardor/categories')
-    const data:INavsProps[] = await res.json()
-
-
-    return (
-         <nav className="border-b border-gray-200 bg-white">
+  return (
+    <nav className="border-b border-gray-200 bg-white">
       <div className="container mx-auto flex items-center gap-2 overflow-x-auto px-4 py-3">
-        {data.map((navs: INavsProps) => (
-          <Link
-            key={navs.id}
-            href={`/category/${navs.slug}`}
-            className="flex  items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 transition hover:text-green-800"
-          >
-            <span className="text-base">{navs.icon}</span>
-            <span>{navs.nameBn}</span>
-          </Link>
-        ))}
+        <Suspense
+          fallback={
+            <div aria-hidden="true" className="h-10 w-full animate-pulse rounded-full bg-gray-100" />
+          }
+        >
+          <CategoryNavLinks categories={categories} />
+        </Suspense>
       </div>
     </nav>
-    );
+  );
 };
 
 export default Navbar;
