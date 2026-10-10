@@ -12,11 +12,14 @@ const UserInfo = () => {
   return (
     <div className="shrink-0">
       {user ? (
+        
         <details className="group relative">
           <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full border border-[#dfe8e0] bg-white py-1.5 pl-1.5 pr-3 text-sm font-semibold text-[#1d271f] shadow-sm transition hover:border-[#b7d8c2] hover:bg-[#f8fbf8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#05893e] [&::-webkit-details-marker]:hidden">
+            <Link href={"/profile"}>
             <div className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-[#e8f4eb] text-sm font-bold text-[#047f39] ring-2 ring-[#d9eddf]">
               {user.image}
             </div>
+            </Link>
             <span className="hidden max-w-28 truncate sm:block">{user.name}</span>
             <span aria-hidden="true" className="text-xs text-[#657168]">
               ▼
@@ -35,6 +38,7 @@ const UserInfo = () => {
             </button>
           </div>
         </details>
+        
       ) : (
         <div className="flex items-center gap-1 sm:gap-2">
           <Link
