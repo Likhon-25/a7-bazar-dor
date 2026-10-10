@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import AuthSocialButtons from "@/components/AuthSocialButtons";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "react-toastify";
 
